@@ -1,48 +1,38 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.cleanArchitectureAndroidApplication)
+    alias(libs.plugins.cleanArchitectureAndroidKoin)
+    alias(libs.plugins.cleanArchitectureAndroidTest)
 }
 
 android {
-    namespace = "com.example.android_clean_architecture"
-    compileSdk = 34
-
+    namespace = libs.versions.applicationId.get()
     defaultConfig {
-        applicationId = "com.example.android_clean_architecture"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
+        applicationId = libs.versions.applicationId.get()
+        versionCode = libs.versions.versionCode.get().toInt()
+        versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+    viewBinding.isEnabled = true
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
 }
 
 dependencies {
+    libs.apply {
+        implementation(material)
+        implementation(androidx.appcompat)
+        implementation(androidx.constraintlayout)
+        implementation(koin.android)
+        implementation(koin.core)
+        debugImplementation(leakCanary)
+        debugImplementation(chucker.library)
+        releaseImplementation(chucker.library.no.op)
+    }
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

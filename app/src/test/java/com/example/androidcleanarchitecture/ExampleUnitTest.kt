@@ -1,8 +1,8 @@
-package com.example.android_clean_architecture
+package com.example.androidcleanarchitecture
 
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).

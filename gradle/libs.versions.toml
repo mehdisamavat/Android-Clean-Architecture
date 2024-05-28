@@ -1,26 +1,139 @@
 [versions]
+applicationId = "com.example.android_clean_architecture"
+versionName = "1.0.0"
+minSdkVersion = "21"
+targetSdkVersion = "34"
+compileSdkVersion = "34"
+versionCode = "1000"
+
 agp = "8.5.0-beta02"
-kotlin = "1.9.0"
-coreKtx = "1.13.1"
+kotlin = "1.9.23"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.12.0"
-activity = "1.8.0"
 constraintlayout = "2.1.4"
+kotlinxSerializationVersion = "1.6.3"
+core-ktx = "1.13.1"
+browser = "1.8.0"
+lifecycle = "2.8.0"
+room = "2.6.1"
+coroutines = "1.8.0"
+gson = "2.10.1"
+fragment = "1.7.1"
+navigation = "2.7.7"
+swiperefreshLayout = "1.1.0"
+recyclerView = "1.3.2"
+viewpager2 = "1.1.0"
+okHttp = "4.12.0"
+mockk = "1.13.5"
+coordinatorlayout = "1.2.0"
+junitVersion = "1.1.5"
+splashscreen = "1.0.1"
+mockito = "4.8.0"
+core-testing = "2.2.0"
+androidDesugarJdkLibs = "2.0.4"
+ksp = "1.9.23-1.0.20"
+androidx-annotationJvm = "1.8.0"
+coil = "2.6.0"
+chucker = "4.0.0"
+androidx-test-espresso-espresso-core = "3.5.1"
+retrofit = "2.9.0"
+leakCanary = "2.12"
+legacy-support-v4 = "1.0.0"
+ktor = "2.3.9"
+koin = "3.5.6"
+koin_ksp_version = "1.3.0"
+fake_version = "1.0.0"
+detekt = "1.23.5"
+androidx_test_core = "1.5.0"
+test_assertk = "0.26.1"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android-test = { group = "io.insert-koin", name = "koin-android-test", version.ref = "koin" }
+koin-logger-slf4j = { group = "io.insert-koin", name = "koin-logger-slf4j", version.ref = "koin" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin_ksp_version" }
+koin-ksp-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin" }
+
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshLayout" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerView" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-common-java8 = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "lifecycle" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
+androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationVersion" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+leakCanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakCanary" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+chucker-library = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
+chucker-library-no-op = { group = "com.github.chuckerteam.chucker", name = "library-no-op", version.ref = "chucker" }
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-client = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx_test_core" }
+androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+assertk = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "test_assertk" }
+
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "androidx-annotationJvm" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso-espresso-core" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
+detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+
+cleanArchitectureAndroidLib = { id = "clean.architecture.android.library", version.ref = "fake_version" }
+cleanArchitectureAndroidKoin = { id = "clean.architecture.android.koin", version.ref = "fake_version" }
+cleanArchitectureAndroidTest = { id = "clean.architecture.android.test", version.ref = "fake_version" }
+cleanArchitectureAndroidApplication = { id = "clean.architecture.android.application", version.ref = "fake_version" }
 
