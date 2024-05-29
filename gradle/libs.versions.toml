@@ -132,6 +132,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
+cleanArchitectureJvmLib = { id = "clean.architecture.jvm.library", version.ref = "fake_version" }
 cleanArchitectureAndroidLib = { id = "clean.architecture.android.library", version.ref = "fake_version" }
 cleanArchitectureAndroidKoin = { id = "clean.architecture.android.koin", version.ref = "fake_version" }
 cleanArchitectureAndroidTest = { id = "clean.architecture.android.test", version.ref = "fake_version" }

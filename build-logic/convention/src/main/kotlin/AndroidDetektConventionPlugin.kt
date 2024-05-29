@@ -1,4 +1,5 @@
 import com.example.android_clean_architecture.configureDetekt
+import com.example.android_clean_architecture.libs
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,7 +9,7 @@ class AndroidDetektConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.run {
             pluginManager.apply {
-//                apply(libs.findLibrary("detekt-gradlePlugin").get().get().group.toString())
+                apply(libs.findLibrary("detekt-gradlePlugin").get().get().group.toString())
             }
             extensions.configure<DetektExtension> {
                 configureDetekt(this)
