@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -21,7 +22,11 @@ class ProductsFragment : Fragment() {
     private val viewModel: ProductsViewModel by viewModel()
 
 
-    private val productAdapter: ProductAdapter by lazy { ProductAdapter() }
+    private val productAdapter: ProductAdapter by lazy { ProductAdapter(onClickProduct) }
+    private var onClickProduct: ((description: String) -> Unit)? = { description ->
+        Toast.makeText(binding.root.context, description, Toast.LENGTH_SHORT).show()
+    }
+
 
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
@@ -99,6 +104,7 @@ class ProductsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding.svProduct.setOnQueryTextListener(null)
+        binding.rvProducts.adapter = null
         _binding = null
     }
 }

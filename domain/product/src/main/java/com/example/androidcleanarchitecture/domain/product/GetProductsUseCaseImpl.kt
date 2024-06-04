@@ -12,18 +12,18 @@ internal class GetProductsUseCaseImpl(private val productRepository: ProductRepo
 
     override suspend fun invoke(): Flow<NetworkResult<List<Product>>> {
         return productRepository.getProduct()
-            .transform { res ->
-                when (res) {
+            .transform { response ->
+                when (response) {
                     is NetworkResult.Error -> {
-                        emit(NetworkResult.Error(res.code, res.message))
+                        emit(NetworkResult.Error(response.code, response.message))
                     }
 
                     is NetworkResult.Exception -> {
-                        emit(NetworkResult.Exception(res.e))
+                        emit(NetworkResult.Exception(response.e))
                     }
 
                     is NetworkResult.Success -> {
-                        emit(NetworkResult.Success(res.data.toDomainMapper()))
+                        emit(NetworkResult.Success(response.data.toDomainMapper()))
                     }
                 }
             }

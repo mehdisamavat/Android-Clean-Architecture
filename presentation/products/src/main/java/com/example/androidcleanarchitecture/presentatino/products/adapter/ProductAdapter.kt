@@ -7,7 +7,8 @@ import com.example.androidcleanarchitecture.model.Product
 import com.example.androidcleanarchitecture.presentation.products.databinding.ItemProductBinding
 
 
-class ProductAdapter : ListAdapter<Product, ProductViewHolder>(ProductDiffUtil()) {
+class ProductAdapter(private val onClickProduct: ((description: String) -> Unit)?) :
+    ListAdapter<Product, ProductViewHolder>(ProductDiffUtil()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -22,9 +23,13 @@ class ProductAdapter : ListAdapter<Product, ProductViewHolder>(ProductDiffUtil()
         holder: ProductViewHolder,
         position: Int
     ) {
-        holder.bind(currentList[position])
+        holder.bind(currentList[position], onClickProduct)
     }
 
+    override fun onViewRecycled(holder: ProductViewHolder) {
+        super.onViewRecycled(holder)
+        holder.unBind()
+    }
 
 }
 
