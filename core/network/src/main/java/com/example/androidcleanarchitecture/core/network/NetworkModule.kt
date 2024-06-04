@@ -4,7 +4,6 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.androidcleanarchitecture.core.network.Constant.BASE_URL
 import com.example.androidcleanarchitecture.core.network.handler.NetworkResultCallAdapterFactory
 import com.google.gson.GsonBuilder
-import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
@@ -21,12 +20,6 @@ val networkModule = module {
             .readTimeout(Constant.TIME_OUT, TimeUnit.MILLISECONDS)
             .addInterceptor(ChuckerInterceptor(androidApplication()))
             .build()
-    }
-
-    single {
-        Json {
-            ignoreUnknownKeys = true
-        }
     }
 
     single {

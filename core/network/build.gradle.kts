@@ -16,15 +16,9 @@ dependencies {
 
     api(libs.converter.gson)
     implementation(libs.retrofit)
-    implementation(libs.logging.interceptor)
     implementation(projects.core.common)
     debugImplementation(libs.chucker.library)
     releaseImplementation(libs.chucker.library.no.op)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.kotlin.serialization)
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    api(libs.converter.gson)
-
 
 }
 
