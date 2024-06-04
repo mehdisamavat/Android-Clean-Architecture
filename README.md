@@ -1,4 +1,4 @@
-Android Clean Architecture Project with MVVM, Retrofit, Gson, Detekt, and Coil
+Android Clean Architecture Project with MVVM, Retrofit, Gson, Detekt, Coroutine, Flow, and Coil
 
 Project Description
 
