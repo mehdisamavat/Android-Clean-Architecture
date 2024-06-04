@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -35,7 +36,11 @@ class ProductsViewModel(private val getProductsUseCase: GetProductsUseCase) : Vi
 
     fun getProducts() {
         viewModelScope.launch {
-            getProductsUseCase.invoke().collect { response ->
+            getProductsUseCase().onStart {
+                _productsStateFlow.update {
+                    it.copy(viewStatus = ViewStatus.LOADING)
+                }
+            }.collect { response ->
                 when (response) {
                     is NetworkResult.Success -> {
                         _allProductsStateFlow.update {
@@ -48,14 +53,20 @@ class ProductsViewModel(private val getProductsUseCase: GetProductsUseCase) : Vi
                     }
 
                     is NetworkResult.Error -> {
-                        _allProductsStateFlow.update {
-                            it.copy(viewStatus = ViewStatus.FAILED)
+                        _productsStateFlow.update {
+                            it.copy(
+                                viewStatus = ViewStatus.FAILED,
+                                message = response.message.orEmpty()
+                            )
                         }
                     }
 
                     is NetworkResult.Exception -> {
-                        _allProductsStateFlow.update {
-                            it.copy(viewStatus = ViewStatus.FAILED)
+                        _productsStateFlow.update {
+                            it.copy(
+                                viewStatus = ViewStatus.FAILED,
+                                message = response.e.message.orEmpty()
+                            )
                         }
                     }
                 }

@@ -17,6 +17,7 @@ import com.example.androidcleanarchitecture.presentation.products.databinding.Fr
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 class ProductsFragment : Fragment() {
 
     private val viewModel: ProductsViewModel by viewModel()
@@ -48,30 +49,29 @@ class ProductsFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-
                 launch {
                     viewModel.productsStateFlow.collect { productsState ->
                         when (productsState.viewStatus) {
                             ViewStatus.INITIAL -> {
                                 loadingVisibility(true)
                             }
-
                             ViewStatus.LOADING -> {
                                 loadingVisibility(true)
+                                showRetryMessage(productsState.message, false)
                             }
-
-                            ViewStatus.FAILED -> {
-                                loadingVisibility(false)
-                            }
-
                             ViewStatus.SUCCESS -> {
                                 productAdapter.submitList(productsState.products) {
                                     binding.rvProducts.scrollToPosition(0)
                                     loadingVisibility(false)
-
+                                    showRetryMessage(productsState.message, false)
                                 }
-
                             }
+
+                            ViewStatus.FAILED -> {
+                                loadingVisibility(false)
+                                showRetryMessage(productsState.message, true)
+                            }
+
                         }
 
                     }
@@ -80,6 +80,10 @@ class ProductsFragment : Fragment() {
         }
 
         binding.svProduct.getQueryTextChangeStateFlow()
+
+        binding.layoutMessageRetry.retryButton.setOnClickListener {
+            viewModel.getProducts()
+        }
 
     }
 
@@ -99,6 +103,19 @@ class ProductsFragment : Fragment() {
 
     private fun loadingVisibility(isVisible: Boolean) {
         binding.pbProducts.isVisible = isVisible
+    }
+
+    private fun showRetryMessage(errorMessage: String, isVisible: Boolean) {
+        when (isVisible) {
+            true -> {
+                binding.layoutMessageRetry.errorMessage.text = errorMessage
+                binding.layoutMessageRetry.root.visibility = View.VISIBLE
+            }
+
+            false -> {
+                binding.layoutMessageRetry.root.visibility = View.GONE
+            }
+        }
     }
 
     override fun onDestroyView() {

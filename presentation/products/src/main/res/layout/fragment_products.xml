@@ -31,6 +31,11 @@
 
     </LinearLayout>
 
+    <include
+        android:id="@+id/layout_message_retry"
+        layout="@layout/layout_message_retry"
+        android:visibility="gone" />
+
     <ProgressBar
         android:id="@+id/pb_products"
         android:layout_width="wrap_content"
