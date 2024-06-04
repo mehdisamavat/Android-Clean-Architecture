@@ -32,13 +32,14 @@ internal class GetProductsUseCaseImpl(private val productRepository: ProductRepo
     private fun List<ProductDTO>.toDomainMapper(): List<Product> {
         return map {
             Product(
-                it.id,
-                it.title,
-                it.price,
-                it.description,
-                it.image,
-                it.rating.rate,
-                it.rating.count
+                id = it.id ?: 0,
+                title = it.title.orEmpty(),
+                price = it.price ?: 0.0,
+                description = it.description.orEmpty(),
+                image = it.image.orEmpty(),
+                category = it.category?.value.orEmpty(),
+                rate = it.rating?.rate ?: 2.0,
+                count = it.rating?.count ?: 0
             )
         }
     }

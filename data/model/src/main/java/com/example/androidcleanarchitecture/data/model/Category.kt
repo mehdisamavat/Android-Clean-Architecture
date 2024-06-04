@@ -3,7 +3,7 @@ package com.example.androidcleanarchitecture.data.model
 import com.google.gson.annotations.SerializedName
 
 
-enum class Category(val value: String) {
+enum class Category(val value: String?) {
     @SerializedName("electronics")
     Electronics("electronics"),
 
