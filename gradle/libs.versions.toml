@@ -6,16 +6,16 @@ targetSdkVersion = "34"
 compileSdkVersion = "34"
 versionCode = "1000"
 
-agp = "8.5.0-beta02"
+agp = "8.4.1"
 kotlin = "1.9.23"
 junit = "4.13.2"
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 material = "1.12.0"
 constraintlayout = "2.1.4"
 kotlinxSerializationVersion = "1.6.3"
 core-ktx = "1.13.1"
 browser = "1.8.0"
-lifecycle = "2.8.0"
+lifecycle = "2.8.1"
 room = "2.6.1"
 coroutines = "1.8.0"
 gson = "2.10.1"
@@ -30,6 +30,7 @@ coordinatorlayout = "1.2.0"
 junitVersion = "1.1.5"
 splashscreen = "1.0.1"
 mockito = "4.8.0"
+kotlinMockito = "5.3.1"
 core-testing = "2.2.0"
 androidDesugarJdkLibs = "2.0.4"
 ksp = "1.9.23-1.0.20"
@@ -47,6 +48,9 @@ fake_version = "1.0.0"
 detekt = "1.23.5"
 androidx_test_core = "1.5.0"
 test_assertk = "0.26.1"
+retrofitKotlinxSerializationJson = "1.0.0"
+activity = "1.8.0"
+
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -78,6 +82,7 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
 androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationVersion" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -98,6 +103,8 @@ ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor"
 ktor-client = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
 ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+
 ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 
@@ -106,12 +113,15 @@ mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "kotlinMockito" }
+
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx_test_core" }
 androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 assertk = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "test_assertk" }
+
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }

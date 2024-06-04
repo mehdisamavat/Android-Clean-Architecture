@@ -14,6 +14,7 @@ class AndroidTestConventionPlugin : Plugin<Project> {
                 add("testImplementation", libs.findLibrary("kotlinx.coroutines.test").get())
                 add("testImplementation", libs.findLibrary("junit").get())
                 add("testImplementation", libs.findLibrary("mockk").get())
+                add("testImplementation", libs.findLibrary("mockito.kotlin").get())
                 add("testImplementation", libs.findLibrary("mockk.agent.jvm").get())
                 add("testImplementation", libs.findLibrary("mockito.core").get())
                 add("testImplementation", libs.findLibrary("mockito.inline").get())
