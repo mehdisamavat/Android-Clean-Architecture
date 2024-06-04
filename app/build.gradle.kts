@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.cleanArchitectureAndroidApplication)
     alias(libs.plugins.cleanArchitectureAndroidKoin)
     alias(libs.plugins.cleanArchitectureAndroidTest)
+
 }
 
 android {
@@ -21,6 +22,23 @@ android {
             isReturnDefaultValues = true
         }
     }
+
+
+
+    buildTypes {
+
+        release {
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
+        }
+
+        debug {
+            versionNameSuffix = "-DEBUG"
+        }
+    }
+
 }
 
 dependencies {
@@ -30,9 +48,22 @@ dependencies {
         implementation(androidx.constraintlayout)
         implementation(koin.android)
         implementation(koin.core)
-        debugImplementation(leakCanary)
+        implementation(coil)
+        implementation(androidx.navigation.ui.ktx)
+        implementation(androidx.navigation.fragment.ktx)
         debugImplementation(chucker.library)
         releaseImplementation(chucker.library.no.op)
+        implementation(androidx.core.ktx)
+        implementation(androidx.appcompat)
+        implementation(material)
+        implementation(androidx.activity)
+    }
+
+    projects.apply {
+        implementation(presentation.products)
+        implementation(core.di)
+        implementation(core.image)
+        implementation(core.common)
     }
 
 }
